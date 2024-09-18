@@ -13,6 +13,7 @@ class Tree {
 	}
 	public Node root = null;
 
+	
 	public Node treedisp(int index, int a[]) {
 		if (index >= a.length) {
 			return null;

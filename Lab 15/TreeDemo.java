@@ -11,12 +11,17 @@ class Tree {
 			this.right = null;
 		}
 	}
+	public Node root = null;
 
 	public Node treedisp(int index, int a[]) {
 		if (index >= a.length) {
 			return null;
 		}
 		Node newNode = new Node(a[index]);
+		if(newNode.key == -1){
+            return null;
+        }
+
 		newNode.left = treedisp(index * 2 + 1, a);
 		newNode.right = treedisp(index * 2 + 2, a);
 		return newNode;
@@ -24,9 +29,10 @@ class Tree {
 
 	public void preorder(Node root) {
 		if (root == null) {
+			System.out.println("empty tree");
 			return;
 		}
-		System.out.print(root.key + " "); // Use root.key instead of root.data
+		System.out.println(root.key + " ");
 		preorder(root.left);
 		preorder(root.right);
 	}
@@ -35,18 +41,18 @@ class Tree {
 		if (root == null) {
 			return;
 		}
-		preorder(root.left);
-		preorder(root.right);
-		System.out.print(root.key + " "); // Use root.key instead of root.data
+		postorder(root.left);
+		postorder(root.right);
+		System.out.print(root.key + " "); 
 	}
 
 	public void inorder(Node root) {
 		if (root == null) {
 			return;
 		}
-		preorder(root.left);
-		System.out.print(root.key + " "); // Use root.key instead of root.data
-		preorder(root.right);
+		inorder(root.left);
+		System.out.print(root.key + " "); 
+		inorder(root.right);
 	}
 
 }
@@ -62,18 +68,16 @@ class TreeDemo {
 			a[i] = sc.nextInt();
 		}
 		Tree t = new Tree();
-		Tree.Node root = t.treedisp(0, a); // Capture the root node
+		Tree.Node root = t.treedisp(0, a); 
 
 		System.out.println("Pre-order traversal of the tree:");
-		t.preorder(root);	 // Call preorder on the captured root node
+		t.preorder(t.root);	 
 
 	
 		System.out.println("\nPost-order traversal of the tree:");
-		t.postorder(root); // Call preorder on the captured root node
+		t.postorder(t.root); 
 
 		System.out.println("\nin-order traversal of the tree:");
-		t.inorder(root); // Call preorder on the captured root node
-
-
+		t.inorder(t.root); 
 	}
 }

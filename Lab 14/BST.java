@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 class Node{
     int key;
@@ -11,9 +11,11 @@ class Node{
 }
 public class BST {
     Node root;
+
     public BST(){
         root=null;
     }
+
     void insert(int data){
         root=insertRecord(root,data);
     }
@@ -71,18 +73,32 @@ public class BST {
             else if(root.right==null){
                 return root.left;
             }
-            root=findInorder(root.right);
+            root.key=minValue(root.right);
             root.right=deleteRec(root.right,root.key);
         }
         return root;
 
     }
-    public static Node findInorder(Node root)
-    {
-        while (root.left==null) {
-            root=root.left;
+    int minValue(Node root) {
+        int minValue = root.key;
+        while (root.left != null) {
+            minValue = root.left.key;
+            root = root.left;
         }
-        return root;
+        return minValue;
+    }
+
+            void inorder() {
+        inorderRec(root);
+            }
+
+            void inorderRec(Node root) {
+        if (root != null) {
+            inorderRec(root.left);
+            System.out.print(root.key + " ");
+            inorderRec(root.right);
+            }
+        }
     }
     public static void main(String[] args){
         BST bst = new BST();
@@ -118,7 +134,18 @@ public class BST {
                     bst.delete(value);
                     System.out.println("Node delete thay gayo");
                     break;
+                    case 4:
+                    System.out.println("Inorder Traversal of the tree");
+                    bst.inorder();
+                    System.out.println();
+                    break;
+                case 5:
+                    System.out.println("bar nikadi gayo ");
+                    sc.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("choice ma dhule che pachi nakh");
         }
     }
-}
 }

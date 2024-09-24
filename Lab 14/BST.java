@@ -99,7 +99,7 @@ public class BST {
             inorderRec(root.right);
             }
         }
-    }
+    
     public static void main(String[] args){
         BST bst = new BST();
         Scanner sc = new Scanner(System.in);
@@ -109,6 +109,7 @@ public class BST {
             System.out.println("Enter 1 for insert a node");
             System.out.println("Enter 2 for search a node");
             System.out.println("Enter 3 for delete:");
+            System.out.println("Enter 4 for display");
             choice = sc.nextInt();
 
             switch (choice) {
@@ -134,7 +135,7 @@ public class BST {
                     bst.delete(value);
                     System.out.println("Node delete thay gayo");
                     break;
-                    case 4:
+                case 4:
                     System.out.println("Inorder Traversal of the tree");
                     bst.inorder();
                     System.out.println();
@@ -145,7 +146,8 @@ public class BST {
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("choice ma dhule che pachi nakh");
+                    System.out.println("choice ma bhul che pachi nakh");
         }
     }
+}
 }

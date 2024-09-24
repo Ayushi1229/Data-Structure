@@ -74,7 +74,7 @@ public class BSTOrder {
     }
 
     public static void main(String[] args) {
-        BinarySearchTree tree = new BinarySearchTree();
+        BSTOrder tree = new BSTOrder();
         Scanner scanner = new Scanner(System.in);
         int choice;
 

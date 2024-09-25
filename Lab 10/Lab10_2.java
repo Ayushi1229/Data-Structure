@@ -117,6 +117,14 @@ class LinkedList{
     //     // TODO Auto-generated method stub
     //     throw new UnsupportedOperationException("Unimplemented method 'insert'");
     // }
+    public void insert(int element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'insert'");
+    }
+    public int countNode() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'countNode'");
+    }
 }
 
 public class Lab10_2 {
